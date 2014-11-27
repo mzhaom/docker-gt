@@ -5,4 +5,5 @@ dev-vcs/subversion perl -dso
 net-nds/nsscache nsscache -nssdb
 =dev-lang/python-2* berkdb
 media-libs/harfbuzz icu
-
+net-firewall/iptables netlink
+app-emulation/docker  -aufs btrfs lxc
