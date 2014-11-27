@@ -3,6 +3,8 @@ app-admin/syslog-ng
 app-editors/vim
 app-emulation/docker
 app-emulation/qemu
+app-misc/screen
+app-misc/tmux
 app-office/libreoffice
 app-portage/eix
 dev-lang/go
@@ -10,10 +12,8 @@ dev-util/strace
 dev-vcs/git
 dev-vcs/mercurial
 kde-base/kdebase-meta
-media-fonts/corefonts
-media-fonts/droid
-media-fonts/source-pro
-media-fonts/ubuntu-font-family
+kde-base/kdegraphics-meta
+kde-base/kdenetwork-meta
 media-gfx/gimp
 media-video/mplayer
 net-analyzer/tcpdump
@@ -21,6 +21,7 @@ net-analyzer/wireshark
 net-fs/nfs-utils
 net-misc/bridge-utils
 net-misc/dhcpcd
+net-misc/networkmanager-openvpn
 net-misc/openvpn
 net-nds/nsscache
 sys-apps/iproute2
@@ -29,3 +30,5 @@ sys-kernel/genkernel
 sys-process/vixie-cron
 www-client/google-chrome
 x11-base/xorg-server
+x11-terms/gnome-terminal
+x11-terms/xterm

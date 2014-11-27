@@ -7,6 +7,8 @@ function ds_repository_name {
 }
 
 function ds_build {
+  emerge -ek system
+  emerge -k @all @themes
   # Update nsscache
   nsscache update --full
   nsscache verify
