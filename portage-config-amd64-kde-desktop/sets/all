@@ -1,9 +1,12 @@
 app-admin/sudo
 app-admin/syslog-ng
 app-editors/vim
+app-emulation/docker
+app-emulation/qemu
 app-office/libreoffice
 app-portage/eix
 dev-lang/go
+dev-util/strace
 dev-vcs/git
 dev-vcs/mercurial
 kde-base/kdebase-meta
@@ -12,6 +15,9 @@ media-fonts/droid
 media-fonts/source-pro
 media-fonts/ubuntu-font-family
 media-gfx/gimp
+media-video/mplayer
+net-analyzer/tcpdump
+net-analyzer/wireshark
 net-fs/nfs-utils
 net-misc/bridge-utils
 net-misc/dhcpcd
