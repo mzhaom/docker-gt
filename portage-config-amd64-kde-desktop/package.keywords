@@ -5,3 +5,4 @@ net-nds/nsscache
 www-client/google-chrome
 media-fonts/source-pro
 app-emulation/docker
+app-emulation/lxc

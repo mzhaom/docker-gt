@@ -7,3 +7,4 @@ net-nds/nsscache nsscache -nssdb
 media-libs/harfbuzz icu
 net-firewall/iptables netlink
 app-emulation/docker  -aufs btrfs lxc
+app-emulation/qemu
