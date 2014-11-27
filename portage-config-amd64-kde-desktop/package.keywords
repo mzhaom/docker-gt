@@ -1,0 +1,6 @@
+sys-boot/syslinux
+sys-boot/gnu-efi
+sys-auth/libnss-cache
+net-nds/nsscache
+www-client/google-chrome
+media-fonts/source-pro
