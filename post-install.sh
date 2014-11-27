@@ -6,6 +6,10 @@
 nsscache update --full
 nsscache verify
 
+# Fix dbus setup
+# dbus-uuidgen > /etc/machine-id
+# ln -sf /etc/machine-id /var/lib/dbus/machine-id
+
 # Setup timezone
 echo "US/Pacific" > /etc/timezone
 
