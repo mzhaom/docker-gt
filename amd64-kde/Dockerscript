@@ -1,0 +1,24 @@
+function ds_from {
+  echo gentoo-amd64:latest
+}
+
+function ds_repository_name {
+  echo gentoo-amd64-test
+}
+
+function ds_build {
+  # Update nsscache
+  nsscache update --full
+  nsscache verify
+
+  # Setup timezone
+  echo "US/Pacific" > /etc/timezone
+
+  # Generate locale
+  cat <<EOF > /etc/locale.gen
+en_US ISO-8859-1
+en_US.UTF-8 UTF-8
+EOF
+
+  locale-gen
+}
