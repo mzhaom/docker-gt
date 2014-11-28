@@ -1,13 +1,14 @@
 #!/bin/bash
 ARCH=amd64
-PORTAGE_DIR=/home/mzhao/gentoo/portage
-CONFIG_DIR=/home/mzhao/gentoo/gentoo-builder/portage-config-amd64-kde-desktop
-OVERLAY_DIR=/home/mzhao/gentoo/gentoo-builder/overlay-base
+PORTAGE_DIR=$PWD/portage
+CONFIG_DIR=$PWD/etc-portage
+OVERLAY_DIR=$PWD/overlay
 # Output directory
-TARGET_DIR=/home/mzhao/gentoo/output-$ARCH
+# TARGET_DIR=/home/mzhao/gentoo/output-$ARCH
+set -x
 docker run --rm -t -i \
   -v ${PORTAGE_DIR}:/usr/portage \
+  -v $PWD/packages:/usr/portage/packages \
   -v ${CONFIG_DIR}:/etc/portage \
-  -v ${OVERLAY_DIR}:/overlay \
-  -v ${TARGET_DIR}:/target \
-  -h gentoo-${ARCH}-builder gentoo-${ARCH} /bin/bash
+  -v ${OVERLAY_DIR}:/tmp/overlay \
+  -h $(basename $PWD) gentoo-${ARCH} /bin/bash
