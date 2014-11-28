@@ -43,6 +43,7 @@ function ds_build {
 function ds_prune_image {
   # Truncate log files
   find var/log -type f -exec cp /dev/null {} \;
+  rm -rf /var/tmp/portage/*
 }
 
 ds_init

@@ -1,0 +1,117 @@
+#!/bin/bash
+
+# This is a temporary script to mimic he functionality of
+# "docker build Dockerfile" but provide explicit commit points
+# so image sizes are minimized.
+
+
+function die {
+  echo "$1" 1>&2
+  exit 1
+}
+
+function ds_from {
+  die "Must define function ds_from in $DOCKER_SCRIPT"
+}
+
+function ds_repository_name {
+  die "Must define function ds_repository_name in $DOCKER_SCRIPT"
+}
+
+function ds_host_build {
+  echo "Skipping empty ds_host_build"
+}
+
+function ds_host_cleanup {
+  echo "Skipping empty ds_host_cleanup"
+}
+
+function ds_image_environment {
+  # echo "key=value"
+  # echo "key2=value2"
+  # cat <<EOF
+  # key=value
+  # EOF
+  echo ""
+}
+
+DOCKER_SCRIPT=${1?Must specify path to Dockerscript}
+if [[ "$(basename $DOCKER_SCRIPT)" != "Dockerscript" || ! -f "$DOCKER_SCRIPT" ]]; then
+  die "Must specify a valid Dockerscript path"
+fi
+DOCKER_SCRIPT=$(readlink -f $DOCKER_SCRIPT)
+
+set -e
+DOCKER_REGISTRY=${DOCKER_REGISTRY:-localhost}
+
+# Load the script so we can find out what images to load.
+source $DOCKER_SCRIPT
+FROM_IMAGE=$(ds_from)
+NAME=${2:-$(ds_repository_name)}
+IMG_ENV=$(ds_image_environment)
+
+DOCKER_WORKDIR=$(dirname $(readlink -f $DOCKER_SCRIPT))
+DOCKER_TOOLS=$(dirname $(readlink -f $0))
+
+# PROD_DNS must be specified because our desktop machines are running
+# dns_masq which cannot be "seen" by the docker bridge network.
+PROD_DNS=$(python -c "import socket; print socket.gethostbyname('dns.luminatewireless.com')")
+
+AUTHOR="$LOGNAME@$HOSTNAME"
+MESSAGE="Created with $DOCKER_SCRIPT"
+
+trap "(echo 'Running ds_host_cleanup hook'; cd $DOCKER_WORKDIR; ds_host_cleanup)" EXIT
+
+echo "Running ds_host_build hook"
+(cd $DOCKER_WORKDIR; ds_host_build)
+
+if [[ "$CONTAINER_ID" == "" ]]; then
+  # Try to ensure that we always have the most up-to-date image, but
+  # don't block progress otherwise.
+  # FIXME(mike) If you have a local image, but nothing else, you must
+  # push that dependency first. This seems bad for testing and staging
+  # up a series of changes. What I really need is "pull if newer".
+  set +e
+
+  if docker-registry image-outdated $FROM_IMAGE; then
+    docker pull $FROM_IMAGE || echo "WARNING: Unable to pull $FROM_IMAGE" >&2
+  fi
+
+  set -e
+  env_args=$(echo "$IMG_ENV" | xargs -n 1 -i echo '-e {}')
+  # Run in background to get the container id.
+  CONTAINER_ID=$(docker run -d \
+    -t \
+    --dns $PROD_DNS \
+    $env_args \
+    -v $DOCKER_WORKDIR/portage:/usr/portage \
+    -v $DOCKER_WORKDIR/packages:/usr/portage/packages \
+    -v $DOCKER_WORKDIR/etc-portage:/etc/portage \
+    -v $DOCKER_WORKDIR/overlay:/tmp/overlay \
+    -v $DOCKER_WORKDIR:/lw/cwd \
+    -v $DOCKER_TOOLS:/lw/tools \
+    $FROM_IMAGE /bin/bash /lw/tools/run_dockerscript.sh /lw/cwd/Dockerscript)
+  echo "Running $DOCKER_SCRIPT in $CONTAINER_ID"
+else
+  echo "Restarting $DOCKER_SCRIPT in $CONTAINER_ID"
+  docker start $CONTAINER_ID
+fi
+
+trap "docker stop $CONTAINER_ID" SIGINT SIGTERM 
+
+# Most of the time seeing what the container is up to is beneficial.
+(docker attach --no-stdin $CONTAINER_ID) &
+CONTAINER_EXIT=$(docker wait $CONTAINER_ID)
+
+# Container exit code comes back as a string.
+if [ $CONTAINER_EXIT != "0" ]; then
+  echo "Container $CONTAINER_ID did not exit cleanly. $CONTAINER_EXIT" 1>&2
+  # FIXME(mike) Implement quiet vs verbose logging.
+  docker logs $CONTAINER_ID
+  exit 1
+fi
+# docker logs $CONTAINER_ID
+
+# echo "Committing $CONTAINER_ID as $NAME"
+IMAGE_ID=$(docker commit --author "$AUTHOR" -m "$MESSAGE" $CONTAINER_ID $NAME)
+echo "Created image $IMAGE_ID $AUTHOR $MESSAGE $NAME"
