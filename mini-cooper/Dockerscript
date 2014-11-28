@@ -1,0 +1,11 @@
+function ds_from {
+  echo gentoo-amd64:latest
+}
+
+function ds_repository_name {
+  echo gentoo-mini-cooper:canary
+}
+
+function ds_build {
+  emerge -e system vim emacs iproute2 iptables app-misc/screen -j -k
+}
