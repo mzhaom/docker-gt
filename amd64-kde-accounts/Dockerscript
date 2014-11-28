@@ -7,11 +7,10 @@ function ds_repository_name {
 }
 
 function ds_build {
-  emerge -k app-emulation/docker
-
   # Copy config files.
-  cp -a /tmp/overlay/* /etc/
+  rsync -av /tmp/overlay/ /
   # Update nsscache
+  mkdir -p /var/lib/misc
   nsscache update --full
   nsscache verify
 
