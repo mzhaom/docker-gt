@@ -1,7 +1,6 @@
 app-admin/sudo
 app-admin/syslog-ng
 app-editors/vim
-app-emulation/docker
 app-emulation/qemu
 app-misc/screen
 app-misc/tmux
