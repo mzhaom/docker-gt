@@ -1,0 +1,24 @@
+function ds_from {
+  echo gentoo-mini-cooper:latest
+}
+
+function ds_repository_name {
+  echo gentoo-amd64-gnome:canary
+}
+
+docker_flat_image=1
+
+function ds_build {
+  emerge -e -k -j system gnome-light \
+      gimp inkscape graphviz \
+      google-chrome \
+      emacs vim \
+      media-video/mplayer \
+      grub \
+      @admin-tools \
+      @dev-tools \
+      @network-dev \
+      @themes
+  eselect editor set 1
+  emerge --depclean
+}

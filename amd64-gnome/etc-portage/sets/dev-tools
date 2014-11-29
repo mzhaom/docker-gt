@@ -1,0 +1,5 @@
+dev-lang/go
+dev-util/strace
+dev-vcs/git
+dev-vcs/mercurial
+sys-devel/gdb

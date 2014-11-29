@@ -1,0 +1,9 @@
+app-admin/sudo
+app-admin/rsyslog
+app-misc/screen
+app-misc/tmux
+app-portage/eix
+sys-kernel/genkernel-next
+sys-process/vixie-cron
+x11-terms/gnome-terminal
+x11-terms/xterm
