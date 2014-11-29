@@ -112,6 +112,14 @@ if [ $CONTAINER_EXIT != "0" ]; then
 fi
 # docker logs $CONTAINER_ID
 
-# echo "Committing $CONTAINER_ID as $NAME"
-IMAGE_ID=$(docker commit --author "$AUTHOR" -m "$MESSAGE" $CONTAINER_ID $NAME)
-echo "Created image $IMAGE_ID $AUTHOR $MESSAGE $NAME"
+if [[ $docker_flat_image == 1 ]]; then
+  docker export $CONTAINER_ID > image.tar
+  IMAGE_ID=$(cat image.tar | docker import - $NAME)
+  echo "Created image $NAME with ID $IMAGE_ID"
+else
+  echo "Committing $CONTAINER_ID as $NAME"
+  IMAGE_ID=$(docker commit --author "$AUTHOR" -m "$MESSAGE" $CONTAINER_ID $NAME)
+  echo "Created image $IMAGE_ID $AUTHOR $MESSAGE $NAME"
+fi
+echo "Removing container: dockrm rm $CONTAINER_ID"
+dock rm $CONTAINER_ID
