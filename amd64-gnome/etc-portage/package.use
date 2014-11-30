@@ -9,11 +9,11 @@ net-firewall/iptables netlink
 app-emulation/docker  -aufs btrfs lxc
 app-emulation/qemu
 net-misc/networkmanager resolvconf
-x11-terms/gnome-terminal -gnome-shell
 media-gfx/inkscape postscript
-=x11-libs/libdrm-2.4.52 libkms
+x11-libs/libdrm libkms
 # required by x11-drivers/xf86-video-vmware-13.0.1-r1
 # required by x11-base/xorg-drivers-1.15[video_cards_vmware]
 # required by x11-base/xorg-server-1.15.0[xorg]
 # required by x11-drivers/xf86-input-keyboard-1.7.0
-=media-libs/mesa-10.0.4 xa
+media-libs/mesa xa
+ app-text/texlive-core xetex
