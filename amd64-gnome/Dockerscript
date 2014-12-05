@@ -15,6 +15,7 @@ function ds_build {
       emacs vim \
       media-video/mplayer \
       grub \
+      sys-kernel/linux-firmware sys-apps/usbutils \
       @admin-tools \
       @dev-tools \
       @network-dev \
