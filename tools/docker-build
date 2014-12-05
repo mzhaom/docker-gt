@@ -122,4 +122,4 @@ else
   echo "Created image $IMAGE_ID $AUTHOR $MESSAGE $NAME"
 fi
 echo "Removing container: dockrm rm $CONTAINER_ID"
-dock rm $CONTAINER_ID
+docker rm $CONTAINER_ID
