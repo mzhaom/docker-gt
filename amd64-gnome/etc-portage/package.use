@@ -16,4 +16,5 @@ x11-libs/libdrm libkms
 # required by x11-base/xorg-server-1.15.0[xorg]
 # required by x11-drivers/xf86-input-keyboard-1.7.0
 media-libs/mesa xa
- app-text/texlive-core xetex
+app-text/texlive-core xetex
+sys-kernel/genkernel-next cryptsetup plymouth
