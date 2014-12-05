@@ -1,3 +1,4 @@
 net-nds/nsscache nsscache -nssdb
 net-firewall/iptables netlink
 app-editors/emacs gzip-el
+sys-kernel/genkernel-next cryptsetup plymouth
