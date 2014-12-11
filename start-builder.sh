@@ -7,9 +7,18 @@ IMG=${DOCKER_IMG:-gentoo-mini-cooper}
 # Output directory
 # TARGET_DIR=/home/mzhao/gentoo/output-$ARCH
 set -x
+if [ -d $PWD/packages ]; then
+    PKG_DIR=$PWD/packages
+elif [ -d /gfs/lab-0/home/mzhao/$(basename $PWD)/packages ]; then
+    PKG_DIR=/gfs/lab-0/home/mzhao/$(basename $PWD)/packages
+else
+    echo "No package dir found"
+    exit 1
+fi
+set -x
 docker run --rm -t -i \
   -v ${PORTAGE_DIR}:/usr/portage \
-  -v $PWD/packages:/usr/portage/packages \
+  -v ${PKG_DIR}:/usr/portage/packages \
   -v ${CONFIG_DIR}:/etc/portage \
   -v ${OVERLAY_DIR}:/tmp/overlay \
   -h $(basename $PWD) ${IMG} /bin/bash
