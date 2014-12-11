@@ -7,3 +7,4 @@ media-fonts/source-pro
 app-emulation/docker
 app-emulation/lxc
 x11-themes/human-icon-theme
+dev-java/oracle-jdk-bin

@@ -18,3 +18,4 @@ x11-libs/libdrm libkms
 media-libs/mesa xa
 app-text/texlive-core xetex
 sys-kernel/genkernel-next cryptsetup plymouth
+media-plugins/gst-plugins-meta ffmpeg
