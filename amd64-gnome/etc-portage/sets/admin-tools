@@ -7,3 +7,4 @@ sys-kernel/genkernel-next
 sys-process/vixie-cron
 x11-terms/gnome-terminal
 x11-terms/xterm
+net-nds/nsscache
