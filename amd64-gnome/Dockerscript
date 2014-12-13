@@ -9,13 +9,14 @@ function ds_repository_name {
 docker_flat_image=1
 
 function ds_build {
-  emerge -e -k -j system gnome-light \
+  emerge -e -k -j --with-bdeps=y system gnome-light \
       gimp inkscape graphviz \
       google-chrome \
       emacs vim \
       media-video/mplayer \
       grub \
       sys-kernel/linux-firmware sys-apps/usbutils \
+      app-crypt/seahorse
       @admin-tools \
       @dev-tools \
       @network-dev \
