@@ -21,3 +21,4 @@ sys-kernel/genkernel-next cryptsetup plymouth
 media-plugins/gst-plugins-meta ffmpeg
 net-p2p/amule upnp geoip daemon stats
 media-libs/freetype infinality auto-hinter
+dev-libs/elfutils static-libs
