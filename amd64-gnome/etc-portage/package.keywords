@@ -28,3 +28,6 @@ media-video/handbrake
 
 media-fonts/source-han-sans
 
+sys-fs/zfs-kmod
+sys-fs/zfs
+sys-kernel/spl
