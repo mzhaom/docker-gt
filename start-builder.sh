@@ -9,8 +9,8 @@ IMG=${DOCKER_IMG:-gentoo-mini-cooper}
 set -x
 if [ -d $PWD/packages ]; then
     PKG_DIR=$PWD/packages
-elif [ -d /gfs/lab-0/home/mzhao/$(basename $PWD)/packages ]; then
-    PKG_DIR=/gfs/lab-0/home/mzhao/$(basename $PWD)/packages
+#elif [ -d /gfs/lab-0/home/mzhao/$(basename $PWD)/packages ]; then
+#    PKG_DIR=/gfs/lab-0/home/mzhao/$(basename $PWD)/packages
 else
     echo "No package dir found"
     exit 1
@@ -22,3 +22,4 @@ docker run --rm -t -i \
   -v ${CONFIG_DIR}:/etc/portage \
   -v ${OVERLAY_DIR}:/tmp/overlay \
   -h $(basename $PWD) ${IMG} /bin/bash
+rsync -azv $PWD/packages /gfs/lab-0/home/mzhao/$(basename $PWD)/
