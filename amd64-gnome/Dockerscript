@@ -16,11 +16,12 @@ function ds_build {
       media-video/mplayer \
       grub \
       sys-kernel/linux-firmware sys-apps/usbutils \
-      app-crypt/seahorse
+      app-crypt/seahorse \
       @admin-tools \
       @dev-tools \
       @network-dev \
       @themes
+  emerge --update --newuse --deep --with-bdeps=y @world
   eselect editor set 1
   emerge --depclean
 }

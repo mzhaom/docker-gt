@@ -9,7 +9,9 @@ function ds_repository_name {
 }
 
 function ds_build {
-  emerge -e system vim emacs iproute2 iptables app-misc/screen -j -k
+  emerge -e --update --newuse --deep --with-bdeps=y \
+  system vim emacs iproute2 iptables app-misc/screen -j -k
   eselect editor set 1
+  emerge --update --newuse --deep --with-bdeps=y @world
   emerge --depclean
 }
