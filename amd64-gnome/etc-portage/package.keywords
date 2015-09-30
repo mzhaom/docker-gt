@@ -8,6 +8,7 @@ app-emulation/docker
 app-emulation/lxc
 x11-themes/human-icon-theme
 dev-java/oracle-jdk-bin
+
 sys-fs/zfs-kmod
 sys-fs/zfs
 sys-kernel/spl
@@ -24,3 +25,6 @@ app-emacs/yaml-mode
 app-emulation/wine
 media-fonts/noto-cjk
 media-video/handbrake
+
+media-fonts/source-han-sans
+
