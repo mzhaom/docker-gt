@@ -22,3 +22,20 @@ media-plugins/gst-plugins-meta ffmpeg
 net-p2p/amule upnp geoip daemon stats
 media-libs/freetype auto-hinter
 dev-libs/elfutils static-libs
+# required by media-libs/clutter-1.20.0[egl]
+# required by x11-wm/mutter-3.14.3[kms]
+# required by gnome-base/gnome-light-3.14.0[gnome-shell]
+# required by @selected
+# required by @world (argument)
+>=media-libs/cogl-1.18.2-r1 gles2
+# required by x11-wm/mutter-3.14.3[kms]
+# required by gnome-base/gnome-light-3.14.0[gnome-shell]
+# required by @selected
+# required by @world (argument)
+>=media-libs/clutter-1.20.0 egl
+# required by media-libs/cogl-1.18.2-r1[gles2]
+# required by media-libs/clutter-gst-2.0.14
+# required by gnome-extra/sushi-3.12.0
+# required by gnome-base/nautilus-3.14.2-r1[previewer]
+# required by app-text/evince-3.14.2[nautilus]
+=media-libs/mesa-10.3.7-r1 gles2
