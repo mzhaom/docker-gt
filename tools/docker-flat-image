@@ -1,0 +1,10 @@
+#!/bin/bash
+
+set -e
+set -x
+# Flat a multi-layer image into a single tar file.
+if [[ "$CONTAINER_ID" == "" ]]; then
+  CONTAINER_ID=$(docker run  -d -t $1 /bin/true)
+  docker wait $CONTAINER_ID
+fi
+docker export $CONTAINER_ID > $2
