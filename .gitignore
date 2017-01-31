@@ -1,5 +1,7 @@
 *~
 *.gz
 *.tar
+*.tgz
+*.tbz2
 packages
 
