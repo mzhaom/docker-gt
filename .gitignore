@@ -1,3 +1,5 @@
 *~
-*/packages
-kernel/
+*.gz
+*.tar
+packages
+
