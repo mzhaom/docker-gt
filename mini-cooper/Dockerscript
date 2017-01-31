@@ -13,5 +13,6 @@ function ds_build {
   system vim emacs iproute2 iptables app-misc/screen -j -k
   eselect editor set 1
   emerge --update --newuse --deep --with-bdeps=y @world
+  gcc-config x86_64-pc-linux-gnu-4.9.3
   emerge --depclean
 }
