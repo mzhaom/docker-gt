@@ -23,3 +23,5 @@ dev-java/oracle-jdk-bin javafx
 dev-libs/efl pulseaudio sound
 net-firewall/ipsec-tools nat hybrid
 app-emulation/docker -container-init
+#sys-apps/util-linux -systemd -udev
+
