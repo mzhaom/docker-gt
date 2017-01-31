@@ -1,0 +1,18 @@
+function ds_from {
+  echo gentoo-amd64-gnome:canary
+}
+
+function ds_repository_name {
+  echo gentoo-amd64-gnome-extra:canary
+}
+
+# docker_flat_image=1
+
+function ds_build {
+  emerge -e -k -j --with-bdeps=y totem \
+  app-office/libreoffice \
+  www-client/firefox \
+  system gnome-light \
+  net-im/empathy
+  emerge --depclean
+}
