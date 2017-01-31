@@ -7,3 +7,8 @@ media-fonts/source-pro
 app-emulation/docker
 app-emulation/lxc
 x11-themes/human-icon-theme
+# required by media-fonts/source-pro-20141211[cjk]
+# required by @themes
+# required by @selected
+# required by @world (argument)
+=media-fonts/source-han-sans-1.001 ~amd64

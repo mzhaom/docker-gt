@@ -10,9 +10,12 @@ dev-lang/go
 dev-util/strace
 dev-vcs/git
 dev-vcs/mercurial
-kde-base/kdebase-meta
-kde-base/kdegraphics-meta
-kde-base/kdenetwork-meta
+# move kde-base/kdebase-meta kde-apps/kdebase-meta
+kde-apps/kdebase-meta
+# move kde-base/kdegraphics-meta kde-apps/kdegraphics-meta
+kde-apps/kdegraphics-meta
+# move kde-base/kdenetwork-meta kde-apps/kdenetwork-meta
+kde-apps/kdenetwork-meta
 media-gfx/gimp
 media-video/mplayer
 net-analyzer/tcpdump
