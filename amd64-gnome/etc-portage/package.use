@@ -39,3 +39,6 @@ dev-libs/elfutils static-libs
 # required by gnome-base/nautilus-3.14.2-r1[previewer]
 # required by app-text/evince-3.14.2[nautilus]
 =media-libs/mesa-10.3.7-r1 gles2
+
+
+#sys-apps/util-linux -systemd -udev
