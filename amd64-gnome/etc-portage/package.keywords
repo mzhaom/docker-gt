@@ -13,10 +13,6 @@ sys-fs/zfs-kmod
 sys-fs/zfs
 sys-kernel/spl
 dev-python/keyring
-# required by media-fonts/source-pro-20141211
-# required by @themes
-# required by @selected
-# required by @world (argument)
 media-fonts/source-han-sans ~amd64
 net-im/skype
 net-wireless/reaver
@@ -27,7 +23,3 @@ media-fonts/noto-cjk
 media-video/handbrake
 
 media-fonts/source-han-sans
-
-sys-fs/zfs-kmod
-sys-fs/zfs
-sys-kernel/spl
