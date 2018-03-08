@@ -11,3 +11,16 @@ dev-java/oracle-jdk-bin
 sys-fs/zfs-kmod
 sys-fs/zfs
 sys-kernel/spl
+dev-python/keyring
+# required by media-fonts/source-pro-20141211
+# required by @themes
+# required by @selected
+# required by @world (argument)
+media-fonts/source-han-sans ~amd64
+net-im/skype
+net-wireless/reaver
+app-emacs/markdown-mode
+app-emacs/yaml-mode
+app-emulation/wine
+media-fonts/noto-cjk
+media-video/handbrake
