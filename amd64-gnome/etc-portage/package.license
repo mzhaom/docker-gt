@@ -2,3 +2,8 @@ www-client/google-chrome google-chrome
 dev-java/oracle-jdk-bin Oracle-BCLA-JavaSE
 
 
+# required by skype (argument)
+net-im/skype skype-4.0.0.7-copyright
+
+media-libs/fdk-aac FraunhoferFDK
+app-arch/rar RAR
