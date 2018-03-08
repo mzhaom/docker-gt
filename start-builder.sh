@@ -25,4 +25,4 @@ docker run --rm -t -i \
   -v ${CONFIG_DIR}:/etc/portage \
   -v ${OVERLAY_DIR}:/tmp/overlay \
   -h $(basename $PWD) ${IMG} /bin/bash
-rsync -azv $PWD/packages /gfs/lab-0/home/mzhao/$(basename $PWD)/
+
