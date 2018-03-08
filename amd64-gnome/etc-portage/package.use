@@ -15,13 +15,12 @@ app-text/texlive-core xetex
 sys-kernel/genkernel-next cryptsetup plymouth
 media-plugins/gst-plugins-meta ffmpeg
 net-p2p/amule upnp geoip daemon stats
+
+app-emulation/docker -container-init
+dev-java/oracle-jdk-bin javafx
+dev-libs/efl pulseaudio sound
+dev-libs/elfutils static-libs
 media-libs/freetype infinality auto-hinter
 media-video/ffmpeg fdk
-dev-libs/elfutils static-libs
-dev-java/oracle-jdk-bin javafx
-
-dev-libs/efl pulseaudio sound
 net-firewall/ipsec-tools nat hybrid
-app-emulation/docker -container-init
 #sys-apps/util-linux -systemd -udev
-
