@@ -24,3 +24,14 @@ media-libs/freetype infinality auto-hinter
 media-video/ffmpeg fdk
 net-firewall/ipsec-tools nat hybrid
 #sys-apps/util-linux -systemd -udev
+app-emulation/docker -container-init
+
+# for gnome
+>=net-fs/samba-4.5.15 client
+
+# For circular deps
+# app-editors/emacs -X
+
+# for libreoffice
+>=dev-libs/xmlsec-1.2.24-r1 nss
+
