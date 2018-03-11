@@ -1,9 +1,13 @@
-app-admin/sudo
 app-admin/rsyslog
+app-admin/sudo
+app-arch/file-roller
+app-arch/rar
+app-arch/unrar
+app-crypt/seahorse
 app-misc/screen
 app-misc/tmux
 app-portage/eix
-sys-kernel/genkernel-next
+app-shells/bash-completion
 sys-process/vixie-cron
 x11-terms/gnome-terminal
 x11-terms/xterm
