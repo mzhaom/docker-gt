@@ -19,6 +19,7 @@ else
 fi
 set -x
 docker run --rm -t -i \
+  -e SHELL="/bin/bash" \
   -v ${PORTAGE_DIR}:/usr/portage \
   -v ${USR_SRC_DIR}:/usr/src \
   -v ${PKG_DIR}:/usr/portage/packages \
