@@ -11,8 +11,8 @@ function ds_repository_name {
 function ds_build {
   emerge -e --update --newuse --deep --with-bdeps=y \
   system vim emacs iproute2 iptables app-misc/screen -j -k
-  eselect editor set 1
+  eselect editor set /usr/bin/vi
   emerge --update --newuse --deep --with-bdeps=y @world
-  gcc-config x86_64-pc-linux-gnu-4.9.3
+  # gcc-config x86_64-pc-linux-gnu-4.9.3
   emerge --depclean
 }
