@@ -55,7 +55,7 @@ DOCKER_TOOLS=$(dirname $(readlink -f $0))
 
 # PROD_DNS must be specified because our desktop machines are running
 # dns_masq which cannot be "seen" by the docker bridge network.
-PROD_DNS=$(python -c "import socket; print socket.gethostbyname('dns.luminatewireless.com')")
+PROD_DNS=8.8.8.8
 
 AUTHOR="$LOGNAME@$HOSTNAME"
 MESSAGE="Created with $DOCKER_SCRIPT"
@@ -66,19 +66,6 @@ echo "Running ds_host_build hook"
 (cd $DOCKER_WORKDIR; ds_host_build)
 
 if [[ "$CONTAINER_ID" == "" ]]; then
-  # Try to ensure that we always have the most up-to-date image, but
-  # don't block progress otherwise.
-  # FIXME(mike) If you have a local image, but nothing else, you must
-  # push that dependency first. This seems bad for testing and staging
-  # up a series of changes. What I really need is "pull if newer".
-  set +e
-
-  if docker-registry image-outdated $FROM_IMAGE; then
-    docker pull $FROM_IMAGE || echo "WARNING: Unable to pull $FROM_IMAGE" >&2
-  fi
-
-  set -e
-  env_args=$(echo "$IMG_ENV" | xargs -n 1 -i echo '-e {}')
   # Run in background to get the container id.
   CONTAINER_ID=$(docker run -d \
     -t \
