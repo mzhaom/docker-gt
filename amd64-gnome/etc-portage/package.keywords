@@ -23,3 +23,7 @@ media-fonts/noto-cjk
 media-video/handbrake
 
 media-fonts/source-han-sans
+
+# for handbrake
+media-libs/libbluray
+
