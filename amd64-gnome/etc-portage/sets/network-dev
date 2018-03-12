@@ -17,4 +17,6 @@ net-misc/rdesktop
 net-misc/ssh-askpass-fullscreen
 net-misc/telnet-bsd
 net-misc/vinagre
+net-wireless/aircrack-ng
+net-wireless/reaver
 sys-apps/iproute2
