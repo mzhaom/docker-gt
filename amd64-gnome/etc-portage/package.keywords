@@ -4,8 +4,13 @@ sys-auth/libnss-cache
 net-nds/nsscache
 www-client/google-chrome
 media-fonts/source-pro
+
 app-emulation/docker
 app-emulation/lxc
+app-emulation/docker-proxy
+app-emulation/containerd
+app-emulation/docker-runc
+
 x11-themes/human-icon-theme
 dev-java/oracle-jdk-bin
 
