@@ -35,3 +35,5 @@ app-emulation/docker -container-init
 # for libreoffice
 >=dev-libs/xmlsec-1.2.24-r1 nss
 
+# This only works with python_27 now
+app-text/asciidoc PYTHON_SINGLE_TARGET: python2_7
