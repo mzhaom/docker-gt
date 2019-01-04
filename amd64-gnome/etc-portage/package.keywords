@@ -32,3 +32,13 @@ media-fonts/source-han-sans
 # for handbrake
 media-libs/libbluray
 
+# required by media-video/handbrake-1.1.1::gentoo[-libav]
+# required by @desktop-ext
+# required by @selected
+# required by @world (argument)
+=media-video/ffmpeg-3.4.4 ~amd64
+# required by app-emulation/docker-18.06.0::gentoo
+# required by @emulator
+# required by @selected
+# required by @world (argument)
+=app-emulation/runc-1.0.0_rc5_p20180509 ~amd64

@@ -36,4 +36,8 @@ app-emulation/docker -container-init
 >=dev-libs/xmlsec-1.2.24-r1 nss
 
 # This only works with python_27 now
-app-text/asciidoc PYTHON_SINGLE_TARGET: python2_7
+app-text/asciidoc PYTHON_SINGLE_TARGET: python2_7# required by media-gfx/gnome-photos-3.24.6::gentoo
+# required by gnome-base/gnome-extra-apps-3.24.2::gentoo[tracker]
+# required by gnome-base/gnome-3.24.2::gentoo[extras]
+# required by gnome (argument)
+>=media-libs/gegl-0.3.26 jpeg2k raw
